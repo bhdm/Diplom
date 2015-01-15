@@ -1,8 +1,8 @@
 <html>
 <head>
     {% block javascripts %}
-        <script src="{{ asset('bundles/papermain/js/jquery-1.11.1.min.js') }}"></script>
-        <script src="{{ asset('bundles/papermain/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/jquery-1.11.1.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
         <script>
             $(document).ready(function(){
                 $('.alignRight').click(function(){
@@ -13,7 +13,7 @@
     {% endblock %}
 
     {% block stylesheets %}
-        <link href=" {{ asset('bundles/papermain/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href=" {{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
         <style>
             .setting{
                 text-align: right;

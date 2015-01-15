@@ -1,5 +1,5 @@
 <?php
-namespace Paper\MainBundle\Entity;
+namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,10 +14,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User extends BaseEntity implements UserInterface
 {
-    /**
-     * @ORM\OneToMany(targetEntity="Order", mappedBy="user")
-     */
-    protected $orders;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -26,10 +22,49 @@ class User extends BaseEntity implements UserInterface
     protected $username;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank( message = "поле Фамилия обязательно для заполнения" )
+     */
+    protected $lastName;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank( message = "поле Имя обязательно для заполнения" )
+     */
+    protected $firstName;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    protected $surName;
+
+    /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank( message = "поле пароль" )
+     * @Assert\NotBlank( message = "поле пароль обязательно для заполнения" )
      */
     protected $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank( message = "поле Должность обязательно для заполнения" )
+     */
+    protected $jobTitle;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $ads;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    protected $phone;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank( message = "поле Паспортные данные обязательно для заполнения" )
+     */
+    protected $passport;
 
     /**
      * @ORM\Column(type="string", length=150)
@@ -42,15 +77,12 @@ class User extends BaseEntity implements UserInterface
     protected $roles;
 
     public function __construct(){
-        $this->roles    = 'ROLE_USER';
-        $this->orders = new ArrayCollection();
+        $this->roles    = 'ROLE_OPERATOR';
     }
 
     static public function getRolesNames(){
         return array(
-            "ROLE_ADMIN" => "Администратор",
-            "ROLE_PRESSMAN" => "Печатник",
-            "ROLE_MANAGER" => "Менеджер",
+            "ROLE_OPERATOR" => "Оператор",
         );
     }
 
@@ -61,8 +93,7 @@ class User extends BaseEntity implements UserInterface
 
     public function __toString()
     {
-//        return $this->username;
-        return $this->username;
+        return $this->lastName.' '.$this->firstName.' '.$this->surName;
     }
 
     /**
@@ -238,22 +269,6 @@ class User extends BaseEntity implements UserInterface
         return $this->surName;
     }
 
-    /**
-     * @param mixed $orders
-     */
-    public function setOrders($orders)
-    {
-        $this->orders = $orders;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOrders()
-    {
-        return $this->orders;
-    }
-
     public function getUserRoles(){
         return $this->roles[0];
     }
@@ -261,4 +276,71 @@ class User extends BaseEntity implements UserInterface
     public function setUserRoles($role){
         $this->roles = $role;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getJobTitle()
+    {
+        return $this->jobTitle;
+    }
+
+    /**
+     * @param mixed $jobTitle
+     */
+    public function setJobTitle($jobTitle)
+    {
+        $this->jobTitle = $jobTitle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAds()
+    {
+        return $this->ads;
+    }
+
+    /**
+     * @param mixed $ads
+     */
+    public function setAds($ads)
+    {
+        $this->ads = $ads;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassport()
+    {
+        return $this->passport;
+    }
+
+    /**
+     * @param mixed $passport
+     */
+    public function setPassport($passport)
+    {
+        $this->passport = $passport;
+    }
+
+
+
 }

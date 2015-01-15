@@ -2,45 +2,10 @@
     <h2 class="modal-title">Навигация</h2>
     <ul class="nav list-group">
         <li class="">
-            <a href="{{ path('order_list') }}">
+            <a href="#">
                 <i class="glyphicon glyphicon-align-justify"></i>
-                Заказы
+                Заявки
             </a>
         </li>
-        {% if is_granted('ROLE_USER') %}
-        <li class="">
-            <a href="{{ path('paper_list') }}">
-                <i class="glyphicon glyphicon-list-alt"></i>
-                Бумага
-            </a>
-        </li>
-        {% endif %}
-        {% if is_granted('ROLE_ADMIN') %}
-        <li class="">
-            <a href="{{ path('user_list') }}">
-                <i class="glyphicon glyphicon-picture"></i>
-                Пользователи
-            </a>
-        </li>
-        <li class="">
-            <a href="{{ path('printer_list') }}">
-                <i class="glyphicon glyphicon-print"></i>
-                Принтеры
-            </a>
-        </li>
-        <li class="">
-            <a href="{{ path('frozen_list') }}">
-                <i class="glyphicon glyphicon-stats"></i>
-                Резервы
-            </a>
-        </li>
-        <li class="">
-            <a href="{{ path('statistic_list') }}">
-                <i class="glyphicon glyphicon-stats"></i>
-                Статистика
-            </a>
-        </li>
-        {% endif %}
-
     </ul>
 </div>

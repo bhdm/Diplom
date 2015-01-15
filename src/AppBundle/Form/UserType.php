@@ -1,6 +1,6 @@
 <?php
 
-namespace Paper\MainBundle\Form;
+namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,6 +15,13 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('lastName', null, array('label' => 'Фамилия'))
+            ->add('firstName', null, array('label' => 'Имя'))
+            ->add('surName', null, array('label' => 'Отчество'))
+            ->add('jobTitle', null, array('label' => 'Должность'))
+            ->add('ads', null, array('label' => 'Адрес'))
+            ->add('phone', null, array('label' => 'Телефон'))
+            ->add('passport', null, array('label' => 'Паспорт'))
             ->add('username', null, array('label' => 'Логин'))
             ->add('password', 'repeated', array('type' => 'password', 'invalid_message' => 'пароли не совпадают', 'first_options'  => array('label' => 'Пароль'),
                 'second_options' => array('label' => 'Повторите пароль'),))
@@ -22,9 +29,7 @@ class UserType extends AbstractType
             ->add('userRoles','choice',  array(
                 'empty_value' => false,
                 'choices' => array(
-                    'ROLE_ADMIN' => 'Администратор',
-                    'ROLE_MANAGER' => 'Менеджер',
-                    'ROLE_PRESSMAN' => 'Печатник',
+                    'ROLE_OPERATOR' => 'Администратор',
                 ),
                 'label' => 'Активность',
                 'required'  => false,
