@@ -4,7 +4,6 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Справочник клиентов
@@ -14,6 +13,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class Client extends BaseEntity
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="Order", mappedBy="client")
+     */
+    protected $orders;
 
     /**
      * @ORM\Column(type="integer")
@@ -37,6 +41,10 @@ class Client extends BaseEntity
      * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $surName;
+
+    public function __construct(){
+        $this->orders = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -102,5 +110,27 @@ class Client extends BaseEntity
         $this->surName = $surName;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
 
+    /**
+     * @param mixed $orders
+     */
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
+    }
+
+    public function addOrder($order){
+        $this->orders[] = $order;
+    }
+
+    public function removeOrder($order){
+        $this->orders->removeElement($order);
+    }
 }

@@ -4,7 +4,6 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Справочник работ
@@ -14,6 +13,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class Work extends BaseEntity
 {
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Work", inversedBy="works")
+     */
+    protected $orders;
+
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank( message = "поле Дата начала работ обязательно для заполнения" )
@@ -99,6 +104,22 @@ class Work extends BaseEntity
     public function setContacts($contacts)
     {
         $this->contacts = $contacts;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    /**
+     * @param mixed $orders
+     */
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
     }
 
 

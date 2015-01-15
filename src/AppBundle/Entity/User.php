@@ -16,6 +16,11 @@ class User extends BaseEntity implements UserInterface
 {
 
     /**
+     * @ORM\OneToMany(targetEntity="Order", mappedBy="user")
+     */
+    protected $orders;
+
+    /**
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank( message = "поле E-mail обязательно для заполнения" )
      */
@@ -78,6 +83,7 @@ class User extends BaseEntity implements UserInterface
 
     public function __construct(){
         $this->roles    = 'ROLE_OPERATOR';
+        $this->orders = new ArrayCollection();
     }
 
     static public function getRolesNames(){
@@ -341,6 +347,28 @@ class User extends BaseEntity implements UserInterface
         $this->passport = $passport;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
 
+    /**
+     * @param mixed $orders
+     */
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
+    }
+
+    public function addOrder($order){
+        $this->orders[] = $order;
+    }
+
+    public function removeOrder($order){
+        $this->orders->removeElement($order);
+    }
 
 }
