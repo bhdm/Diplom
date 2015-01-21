@@ -15,7 +15,7 @@ class Company extends BaseEntity
 {
 
     /**
-     * @ORM\OneToMany(targetEntity="Contract", inversedBy="company")
+     * @ORM\OneToMany(targetEntity="Contract", mappedBy="company")
      */
     protected $contracts;
 
