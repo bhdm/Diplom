@@ -376,21 +376,5 @@ class User extends BaseEntity implements UserInterface
         $this->orders->removeElement($order);
     }
 
-    /**
-     * @return mixed
-     */
-    public function getContracts()
-    {
-        return $this->contracts;
-    }
-
-    /**
-     * @param mixed $contracts
-     */
-    public function setContracts($contracts)
-    {
-        $this->contracts = $contracts;
-    }
-
 
 }
