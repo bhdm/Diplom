@@ -16,20 +16,11 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Iphp\FileStoreBundle\IphpFileStoreBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new TFox\MpdfPortBundle\TFoxMpdfPortBundle(),
-            new Crm\MainBundle\CrmMainBundle(),
-            new Crm\AdminBundle\CrmAdminBundle(),
-            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
-            new Crm\OperatorBundle\CrmOperatorBundle(),
-            new Liuggio\ExcelBundle\LiuggioExcelBundle(),
-            new Crm\FaceBundle\CrmFaceBundle(),
-            new Crm\ImageBundle\CrmImageBundle(),
+            new AppBundle\AppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+            $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

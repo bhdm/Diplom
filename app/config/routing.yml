@@ -1,35 +1,3 @@
-crm_image:
-    resource: "@CrmImageBundle/Controller/"
+app:
+    resource: @AppBundle/Controller/
     type:     annotation
-    prefix:   /
-
-crm_face:
-    resource: "@CrmFaceBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-crm_admin:
-    resource: "@CrmAdminBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-crm_main:
-    resource: "@CrmMainBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-crm_operator:
-    resource: "@CrmOperatorBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-
-
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
-
-_security_check:
-    pattern:  /operator/login_check
-
-_security_logout:
-    pattern:  /operator/logout
