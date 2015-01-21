@@ -16,6 +16,11 @@ class User extends BaseEntity implements UserInterface
 {
 
     /**
+     * @ORM\OneToMany(targetEntity="Contract", mappedBy="user")
+     */
+    protected $contracts;
+
+    /**
      * @ORM\OneToMany(targetEntity="Order", mappedBy="user")
      */
     protected $orders;
@@ -370,5 +375,22 @@ class User extends BaseEntity implements UserInterface
     public function removeOrder($order){
         $this->orders->removeElement($order);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getContracts()
+    {
+        return $this->contracts;
+    }
+
+    /**
+     * @param mixed $contracts
+     */
+    public function setContracts($contracts)
+    {
+        $this->contracts = $contracts;
+    }
+
 
 }

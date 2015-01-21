@@ -13,6 +13,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Company extends BaseEntity
 {
+
+    /**
+     * @ORM\OneToMany(targetEntity="Contract", inversedBy="company")
+     */
+    protected $contracts;
+
     /**
      * @ORM\Column(type="string", length=250)
      * @Assert\NotBlank( message = "поле Вид деятельности обязательно для заполнения" )
@@ -53,6 +59,10 @@ class Company extends BaseEntity
      * @Assert\NotBlank( message = "поле Кор. счет обязательно для заполнения" )
      */
     protected $expense;
+
+    public function __construct(){
+        $this->contracts = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -166,5 +176,12 @@ class Company extends BaseEntity
         $this->expense = $expense;
     }
 
+    public function addContract($contract){
+        $this->contracts[] = $contract;
+    }
+
+    public function removeContract($contract){
+        $this->contracts->removeElement($contract);
+    }
 
 }

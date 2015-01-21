@@ -20,6 +20,12 @@ class Work extends BaseEntity
     protected $orders;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Contract", mappedBy="works")
+     */
+    protected $contracts;
+
+
+    /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank( message = "поле Дата начала работ обязательно для заполнения" )
      */
@@ -41,6 +47,11 @@ class Work extends BaseEntity
      * @Assert\NotBlank( message = "поле Контактная информация обязательно для заполнения" )
      */
     protected $contacts;
+
+
+    public function __construct(){
+        $this->contracts = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -120,6 +131,30 @@ class Work extends BaseEntity
     public function setOrders($orders)
     {
         $this->orders = $orders;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContracts()
+    {
+        return $this->contracts;
+    }
+
+    /**
+     * @param mixed $contracts
+     */
+    public function setContracts($contracts)
+    {
+        $this->contracts = $contracts;
+    }
+
+    public function addContract($contract){
+        $this->contracts[] = $contract;
+    }
+
+    public function removeContract($contract){
+        $this->contracts->removeElement($contract);
     }
 
 

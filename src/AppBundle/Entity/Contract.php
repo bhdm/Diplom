@@ -13,6 +13,27 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Contract extends BaseEntity
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Order", inversedBy="contracts")
+     */
+    protected $order;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Work", inversedBy="contracts")
+     */
+    protected $works;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="contracts")
+     */
+    protected $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Company", inversedBy="contracts")
+     */
+    protected $company;
+
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank( message = "поле Номер договора обязательно для заполнения" )
@@ -78,6 +99,71 @@ class Contract extends BaseEntity
     {
         $this->length = $length;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param mixed $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWorks()
+    {
+        return $this->works;
+    }
+
+    /**
+     * @param mixed $works
+     */
+    public function setWorks($works)
+    {
+        $this->works = $works;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param mixed $company
+     */
+    public function setCompany($company)
+    {
+        $this->company = $company;
+    }
+
 
 
 }

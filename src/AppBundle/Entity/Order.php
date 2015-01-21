@@ -16,7 +16,12 @@ class Order extends BaseEntity
     /**
      * @ORM\Column(type="boolean")
      */
-    protected $type = true;
+    protected $closed = true;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Contract", mappedBy="order")
+     */
+    protected $contracts;
 
     /**
      * @ORM\ManyToOne(targetEntity="Client", inversedBy="orders")
@@ -45,6 +50,7 @@ class Order extends BaseEntity
 
     public function __construct(){
         $this->works = new ArrayCollection();
+        $this->contracts = new ArrayCollection();
     }
 
     /**
@@ -138,18 +144,45 @@ class Order extends BaseEntity
     /**
      * @return mixed
      */
-    public function getType()
+    public function getClosed()
     {
-        return $this->type;
+        return $this->closed;
     }
 
     /**
-     * @param mixed $type
+     * @param mixed $closed
      */
-    public function setType($type = true)
+    public function setClosed($closed)
     {
-        $this->type = $type;
+        $this->closed = $closed;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getContracts()
+    {
+        return $this->contracts;
+    }
+
+    /**
+     * @param mixed $contracts
+     */
+    public function setContracts($contracts)
+    {
+        $this->contracts = $contracts;
+    }
+
+
+
+    public function addContract($contract){
+        $this->contracts[] = $contract;
+    }
+
+    public function removeContract($contract){
+        $this->contracts->removeElement($contract);
+    }
+
 
 
 }
