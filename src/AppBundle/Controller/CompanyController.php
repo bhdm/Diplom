@@ -1,10 +1,10 @@
 <?php
 namespace AppBundle\Controller;
 
-use Symfony\Bundle\FramecompanyBundle\Controller\Controller;
-use Sensio\Bundle\FramecompanyExtraBundle\Configuration\Route;
-use Sensio\Bundle\FramecompanyExtraBundle\Configuration\Template;
-use Sensio\Bundle\FramecompanyExtraBundle\Configuration\Security;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 use Symfony\Component\HttpFoundation\Request;
