@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Справочник Заявок
  *
- * @ORM\Table()
+ * @ORM\Table(name="Request")
  * @ORM\Entity()
  */
 class Order extends BaseEntity

@@ -15,15 +15,28 @@ class OrderType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('closed')
-            ->add('ends')
-            ->add('endsFact')
-            ->add('enabled')
-            ->add('created')
-            ->add('updated')
-            ->add('client')
-            ->add('user')
-            ->add('works')
+            ->add('closed','choice',  array(
+                'empty_value' => false,
+                'choices' => array(
+                    '1' => 'Закрытая',
+                    '0' => 'открытая',
+                ),
+                'label' => 'Статус',
+                'required'  => false,
+            ))
+            ->add('ends', null, array('label' => 'Планируемая дата окончания'))
+            ->add('endsFact', null,  array('label' => 'Фактическая дата окончания'))
+            ->add('client', null, array('label' => 'Клиент'))
+            ->add('works', null, array('label' => 'работы'))
+            ->add('enabled','choice',  array(
+                'empty_value' => false,
+                'choices' => array(
+                    '1' => 'Активен',
+                    '0' => 'Заблокирован',
+                ),
+                'label' => 'Активность',
+                'required'  => false,
+            ))
             ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
