@@ -21,9 +21,15 @@ class Company extends BaseEntity
 
     /**
      * @ORM\Column(type="string", length=250)
-     * @Assert\NotBlank( message = "поле Вид деятельности обязательно для заполнения" )
+     * @Assert\NotBlank( message = "поле Название обязательно для заполнения" )
      */
-    protected $type;
+    protected $title;
+
+//    /**
+//     * @ORM\Column(type="string", length=250)
+//     * @Assert\NotBlank( message = "поле Вид деятельности обязательно для заполнения" )
+//     */
+//    protected $type;
 
     /**
      * @ORM\Column(type="string", length=250, nullable=true)
@@ -41,6 +47,12 @@ class Company extends BaseEntity
      * @Assert\NotBlank( message = "поле Телефон обязательно для заполнения" )
      */
     protected $phone;
+
+    /**
+     * @ORM\Column(type="string", length=250)
+     * @Assert\NotBlank( message = "поле Контактное лицо обязательно для заполнения" )
+     */
+    protected $contact;
 
     /**
      * @ORM\Column(type="string", length=12)
@@ -62,6 +74,10 @@ class Company extends BaseEntity
 
     public function __construct(){
         $this->contracts = new ArrayCollection();
+    }
+
+    public function __toString(){
+        return $this->title;
     }
 
     /**
@@ -183,5 +199,55 @@ class Company extends BaseEntity
     public function removeContract($contract){
         $this->contracts->removeElement($contract);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getContracts()
+    {
+        return $this->contracts;
+    }
+
+    /**
+     * @param mixed $contracts
+     */
+    public function setContracts($contracts)
+    {
+        $this->contracts = $contracts;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContact()
+    {
+        return $this->contact;
+    }
+
+    /**
+     * @param mixed $contact
+     */
+    public function setContact($contact)
+    {
+        $this->contact = $contact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+
 
 }

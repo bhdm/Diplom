@@ -15,16 +15,23 @@ class CompanyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type')
-            ->add('license')
-            ->add('ads')
-            ->add('phone')
-            ->add('inn')
-            ->add('kpp')
-            ->add('expense')
-            ->add('enabled')
-            ->add('created')
-            ->add('updated')
+            ->add('title', null, array('label' => 'Название'))
+            ->add('license', null, array('label' => '№ лицензии'))
+            ->add('ads', null, array('label' => 'Адрес'))
+            ->add('phone', null, array('label' => 'Телефон'))
+            ->add('contact', null, array('label' => 'Контактное лицо'))
+            ->add('inn', null, array('label' => 'ИНН'))
+            ->add('kpp', null, array('label' => 'КПП'))
+            ->add('expense', null, array('label' => 'Р. счет'))
+            ->add('enabled','choice',  array(
+                'empty_value' => false,
+                'choices' => array(
+                    '1' => 'Активен',
+                    '0' => 'Заблокирован',
+                ),
+                'label' => 'Активность',
+                'required'  => false,
+            ))
             ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
