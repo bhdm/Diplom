@@ -91,6 +91,10 @@ class User extends BaseEntity implements UserInterface
         $this->orders = new ArrayCollection();
     }
 
+    public function __toString(){
+        return $this->lastName.' '.$this->firstName.' '.$this->surName;
+    }
+
     static public function getRolesNames(){
         return array(
             "ROLE_OPERATOR" => "Оператор",
@@ -102,10 +106,6 @@ class User extends BaseEntity implements UserInterface
         return md5($this->getUsername()) == md5($user->getUsername());
     }
 
-    public function __toString()
-    {
-        return $this->lastName.' '.$this->firstName.' '.$this->surName;
-    }
 
     /**
      * @return mixed

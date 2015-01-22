@@ -24,6 +24,7 @@ class OrderType extends AbstractType
             ->add('client')
             ->add('user')
             ->add('works')
+            ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
     

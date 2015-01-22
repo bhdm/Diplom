@@ -19,7 +19,7 @@ use AppBundle\Form\CompanyType;
 class CompanyController extends Controller{
     const ENTITY_NAME = 'Company';
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/", name="company_list")
      * @Template()
      */
@@ -37,7 +37,7 @@ class CompanyController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/add", name="company_add")
      * @Template()
      */
@@ -60,7 +60,7 @@ class CompanyController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/edit/{id}", name="company_edit")
      * @Template()
      */
@@ -82,7 +82,7 @@ class CompanyController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/remove/{id}", name="company_remove")
      */
     public function removeAction(Request $request, $id){

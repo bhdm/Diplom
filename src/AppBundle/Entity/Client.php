@@ -46,6 +46,10 @@ class Client extends BaseEntity
         $this->orders = new ArrayCollection();
     }
 
+    public function __toString(){
+        return $this->lastName.' '.$this->firstName.' '.$this->surName;
+    }
+
     /**
      * @return mixed
      */

@@ -25,6 +25,7 @@ class ContractType extends AbstractType
             ->add('works')
             ->add('user')
             ->add('company')
+            ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
     

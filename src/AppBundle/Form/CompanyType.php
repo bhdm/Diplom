@@ -25,6 +25,7 @@ class CompanyType extends AbstractType
             ->add('enabled')
             ->add('created')
             ->add('updated')
+            ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
     

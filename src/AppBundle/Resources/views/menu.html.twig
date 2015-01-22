@@ -2,9 +2,39 @@
     <h2 class="modal-title">Навигация</h2>
     <ul class="nav list-group">
         <li class="">
-            <a href="#">
+            <a href="{{ path('order_list') }}">
                 <i class="glyphicon glyphicon-align-justify"></i>
                 Заявки
+            </a>
+        </li>
+        <li class="">
+            <a href="#">
+                <i class="glyphicon glyphicon-align-justify"></i>
+                Договора
+            </a>
+        </li>
+        <li class="">
+            <a href="{{ path('client_list') }}">
+                <i class="glyphicon glyphicon-align-justify"></i>
+                Клиенты
+            </a>
+        </li>
+        <li class="">
+            <a href="{{ path('company_list') }}">
+                <i class="glyphicon glyphicon-align-justify"></i>
+                Организации
+            </a>
+        </li>
+        <li class="">
+            <a href="{{ path('work_list') }}">
+                <i class="glyphicon glyphicon-align-justify"></i>
+                Работы
+            </a>
+        </li>
+        <li class="">
+            <a href="{{ path('user_list') }}">
+                <i class="glyphicon glyphicon-align-justify"></i>
+                Пользователи
             </a>
         </li>
     </ul>

@@ -15,7 +15,12 @@ class Work extends BaseEntity
 {
 
     /**
-     * @ORM\ManyToMany(targetEntity="Work", inversedBy="works")
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank( message = "поле Название работы обязательно для заполнения" )
+     */
+    protected $title;
+    /**
+     * @ORM\ManyToMany(targetEntity="Order", inversedBy="works")
      */
     protected $orders;
 
@@ -42,15 +47,13 @@ class Work extends BaseEntity
      */
     protected $responsible;
 
-    /**
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank( message = "поле Контактная информация обязательно для заполнения" )
-     */
-    protected $contacts;
-
 
     public function __construct(){
         $this->contracts = new ArrayCollection();
+    }
+
+    public function __toString(){
+        return $this->title;
     }
 
     /**
@@ -155,6 +158,22 @@ class Work extends BaseEntity
 
     public function removeContract($contract){
         $this->contracts->removeElement($contract);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
     }
 
 

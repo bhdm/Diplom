@@ -15,15 +15,21 @@ class WorkType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('starts')
-            ->add('ends')
-            ->add('responsible')
-            ->add('contacts')
-            ->add('enabled')
-            ->add('created')
-            ->add('updated')
-            ->add('orders')
-            ->add('contracts')
+            ->add('title', null, array('label' => 'Название работ'))
+            ->add('starts', null, array('label' => 'Дата начала'))
+            ->add('ends', null, array('label' => 'Дата окончания'))
+            ->add('responsible', null, array('label' => 'Ответственный'))
+//            ->add('company', null, array('label' => 'Компания'))
+            ->add('enabled','choice',  array(
+                'empty_value' => false,
+                'choices' => array(
+                    '1' => 'Активен',
+                    '0' => 'Заблокирован',
+                ),
+                'label' => 'Активность',
+                'required'  => false,
+            ))
+            ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
     

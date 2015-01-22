@@ -1,7 +1,7 @@
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block breadcrumb %}
-    <a href="{{ path('work_add') }}"><span class="btn btn-primary">Добавить</span></a>
+    <a href="{{ path('client_add') }}"><span class="btn btn-primary">Добавить</span></a>
     <br style="clear: both"/>
     <br style="clear: both"/>
 {% endblock %}
@@ -11,10 +11,8 @@
         <table class="table">
             <tr>
                 <th>№</th>
-                <th>Название</th>
-                <th>Дата начала</th>
-                <th>Дата окончания</th>
-                {#<th>Компания</th>#}
+                <th>ФИО</th>
+                <th>Номер квартиры</th>
                 <th></th>
                 <th class="setting">Инструменты</th>
             </tr>
@@ -22,19 +20,18 @@
                 <tr>
                     <td>{{ item.id }}</td>
                     <td>{{ item }}</td>
-                    <td>{{ item.starts | date('Y.m.d') }}</td>
-                    <td>{{ item.ends | date('Y.m.d') }}</td>
+                    <td>{{ item.room }}</td>
                     <td></td>
                     <td class="setting">
                         {% spaceless %}
-                        <a href="{{ path('work_edit',{'id' : item.id}) }}">
+                        <a href="{{ path('client_edit',{'id' : item.id}) }}">
                             <button type="button" class="btn btn-default btn-bg">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                         </a>
                             &nbsp;
                             &nbsp;
-                        <a href="{{ path('work_remove',{'id' : item.id}) }}">
+                        <a href="{{ path('client_remove',{'id' : item.id}) }}">
                             <button type="button" class="btn btn-default btn-bg">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </button>

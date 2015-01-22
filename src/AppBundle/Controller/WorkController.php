@@ -19,7 +19,7 @@ use AppBundle\Form\WorkType;
 class WorkController extends Controller{
     const ENTITY_NAME = 'Work';
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/", name="work_list")
      * @Template()
      */
@@ -37,7 +37,7 @@ class WorkController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/add", name="work_add")
      * @Template()
      */
@@ -60,7 +60,7 @@ class WorkController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/edit/{id}", name="work_edit")
      * @Template()
      */
@@ -82,7 +82,7 @@ class WorkController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/remove/{id}", name="work_remove")
      */
     public function removeAction(Request $request, $id){

@@ -19,7 +19,7 @@ use AppBundle\Form\OrderType;
 class OrderController extends Controller{
     const ENTITY_NAME = 'Order';
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/", name="order_list")
      * @Template()
      */
@@ -37,7 +37,7 @@ class OrderController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/add", name="order_add")
      * @Template()
      */
@@ -60,7 +60,7 @@ class OrderController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/edit/{id}", name="order_edit")
      * @Template()
      */
@@ -82,7 +82,7 @@ class OrderController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_OPERATOR')")
      * @Route("/remove/{id}", name="order_remove")
      */
     public function removeAction(Request $request, $id){
