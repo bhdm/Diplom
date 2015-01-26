@@ -1,11 +1,12 @@
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block breadcrumb %}
-    {#<ul class="breadcrumb well">#}
-        {#<li><a href="{{ path('admin_main') }}">Домой</a> <span class="divider"></span></li>#}
-        {#<li><a href="{{ path('admin_page_list') }}">Страницы</a> <span class="divider"></span></li>#}
-        {#<li class="active">Изменение<span class="divider"></span></li>#}
-    {#</ul>#}
+    <ul class="breadcrumb well">
+        <li>Клиенты<span class="divider"></span></li>
+        <li>Список клиентов<span class="divider"></span></li>
+        <li>Изменение<span class="divider"></span></li>
+        {#<li><a href="{{ path('client_add') }}"><span class="btn btn-primary">Добавить</span></a></li>#}
+    </ul>
 {% endblock %}
 
 {% block content %}

@@ -16,10 +16,8 @@ class SupplierType extends AbstractType
     {
         $builder
             ->add('title', null, array('label' => 'Название'))
-            ->add('contract', null, array('label' => '№ договора'))
             ->add('ads', null, array('label' => 'Адрес'))
             ->add('phone', null, array('label' => 'Телефон'))
-            ->add('contact', null, array('label' => 'Контактное лицо'))
             ->add('inn', null, array('label' => 'ИНН'))
             ->add('kpp', null, array('label' => 'КПП'))
             ->add('ogrn', null, array('label' => 'ОГРН'))

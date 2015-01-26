@@ -10,3 +10,6 @@
     width: 20%;
     display: inline-block;
 }
+.breadcrumb li{
+    font-weight: bold;
+}
