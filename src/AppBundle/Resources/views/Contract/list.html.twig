@@ -1,0 +1,51 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumb well">
+    <li>Договора<span class="divider"></span></li>
+    <li>Список договоров</li>
+    {#<li class="active">Добавление<span class="divider"></span></li>#}
+        <li><a href="{{ path('contract_add') }}"><span class="btn btn-primary">Добавить</span></a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="well">
+        <table class="table">
+            <tr>
+                <th>№</th>
+                <th>клиент</th>
+                <th>Дата</th>
+                <th></th>
+                <th class="setting">Инструменты</th>
+            </tr>
+            {% for item in pagination %}
+                <tr>
+                    <td>{{ item.number }}</td>
+                    <td>{{ item.order.client.room }}</td>
+                    <td>{{ item.date | date('d.m.Y') }}</td>
+                    <td></td>
+                    <td class="setting">
+                        {% spaceless %}
+                        <a href="{{ path('contract_edit',{'id' : item.id}) }}">
+                            <button type="button" class="btn btn-default btn-bg">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                        </a>
+                            &nbsp;
+                            &nbsp;
+                        <a href="{{ path('contract_remove',{'id' : item.id}) }}">
+                            <button type="button" class="btn btn-default btn-bg">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </a>
+                        {% endspaceless %}
+                    </td>
+                </tr>
+            {% endfor%}
+        </table>
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+{% endblock %}

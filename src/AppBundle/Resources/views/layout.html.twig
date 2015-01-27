@@ -22,7 +22,7 @@
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">АРМ <span class="text-danger">[ Председателя ТСЖ ]</span></a>
+                        <a class="navbar-brand" href="{{ path('order_list') }}">АРМ <span class="text-danger">[ Председателя ТСЖ ]</span></a>
                     </div>
                     <div class="navbar-right">
                         <div class="collapse navbar-collapse">
@@ -44,12 +44,16 @@
             {#<div class="alert alert-warning" role="alert"></div>#}
             {#<div class="alert alert-danger" role="alert"></div>#}
             <div class="row">
-                <div class="col-md-3">
-                    {% block menu %}
-                        {% include 'AppBundle::menu.html.twig' %}
-                    {% endblock %}
-                </div>
-                <div class="col-md-9">
+                {% if is_granted('ROLE_OPERATOR') %}
+                    <div class="col-md-3">
+                        {% block menu %}
+                            {% include 'AppBundle::menu.html.twig' %}
+                        {% endblock %}
+                    </div>
+                    <div class="col-md-9">
+                {% else %}
+                    <div class="col-md-12s">
+                {% endif %}
                     {% block breadcrumb %}
 
                     {% endblock %}

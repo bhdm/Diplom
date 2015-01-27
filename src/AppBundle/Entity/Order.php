@@ -48,6 +48,10 @@ class Order extends BaseEntity
      */
     protected $endsFact;
 
+    public function __toString(){
+        return $this->created->format('d.m.Y').' '.$this->client;
+    }
+
     public function __construct(){
         $this->works = new ArrayCollection();
         $this->contracts = new ArrayCollection();

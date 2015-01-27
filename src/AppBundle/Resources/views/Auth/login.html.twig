@@ -15,7 +15,7 @@
     <div class="col-md-6">
         <ul class="list-group">
             {% for page in pages %}
-                <li class="list-group-item"><a href="/{{ page.url }}">{{ page.title }}</a></li>
+                <li class="list-group-item"><a href="{{ path('pages',{ 'url' : page.url  }) }}">{{ page.title }}</a></li>
             {% endfor %}
         </ul>
 

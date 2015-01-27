@@ -15,16 +15,21 @@ class ContractType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('number')
-            ->add('date')
-            ->add('length')
-            ->add('enabled')
-            ->add('created')
-            ->add('updated')
-            ->add('order')
-            ->add('works')
-            ->add('user')
-            ->add('company')
+            ->add('number', null, array('label' => 'Номер договора'))
+            ->add('date', null, array('label' => 'Дата'))
+            ->add('length', null, array('label' => 'Срок договора (в дн.)'))
+            ->add('order', null, array('label' => 'Заявка'))
+            ->add('works', null, array('label' => 'Работы'))
+            ->add('company', null, array('label' => 'Компания'))
+            ->add('enabled','choice',  array(
+                'empty_value' => false,
+                'choices' => array(
+                    '1' => 'Активен',
+                    '0' => 'Заблокирован',
+                ),
+                'label' => 'Активность',
+                'required'  => false,
+            ))
             ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
