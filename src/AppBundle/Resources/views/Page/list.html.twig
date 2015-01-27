@@ -2,9 +2,9 @@
 
 {% block breadcrumb %}
     <ul class="breadcrumb well">
-        <li>Виды работ<span class="divider"></span></li>
-        <li>Список видов работ</li>
-        <li><a href="{{ path('work_add') }}"><span class="btn btn-primary">Добавить</span></a></li>
+        <li>Страницы<span class="divider"></span></li>
+        <li>Список страниц</li>
+        <li><a href="{{ path('page_add') }}"><span class="btn btn-primary">Добавить</span></a></li>
     </ul>
 {% endblock %}
 
@@ -14,8 +14,8 @@
             <tr>
                 <th>№</th>
                 <th>Название</th>
-                <th>Дата начала</th>
-                <th>Дата окончания</th>
+                <th>URL</th>
+
                 {#<th>Компания</th>#}
                 <th></th>
                 <th class="setting">Инструменты</th>
@@ -23,20 +23,19 @@
             {% for item in pagination %}
                 <tr>
                     <td>{{ item.id }}</td>
-                    <td>{{ item }}</td>
-                    <td>{{ item.starts | date('Y.m.d') }}</td>
-                    <td>{{ item.ends | date('Y.m.d') }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.url }}</td>
                     <td></td>
                     <td class="setting">
                         {% spaceless %}
-                        <a href="{{ path('work_edit',{'id' : item.id}) }}">
+                        <a href="{{ path('page_edit',{'id' : item.id}) }}">
                             <button type="button" class="btn btn-default btn-bg">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                         </a>
                             &nbsp;
                             &nbsp;
-                        <a href="{{ path('work_remove',{'id' : item.id}) }}">
+                        <a href="{{ path('page_remove',{'id' : item.id}) }}">
                             <button type="button" class="btn btn-default btn-bg">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </button>

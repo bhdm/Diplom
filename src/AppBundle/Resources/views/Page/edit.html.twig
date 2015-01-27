@@ -2,13 +2,16 @@
 
 {% block breadcrumb %}
     <ul class="breadcrumb well">
-        <li>Виды работ<span class="divider"></span></li>
-        <li>Список видов работ</li>
-        <li>Добавление</li>
+        <li>Страницы<span class="divider"></span></li>
+        <li>Список страниц</li>
+        <li>Изменение<span class="divider"></span></li>
     </ul>
 {% endblock %}
 
 {% block content %}
+    {#<div class="well">#}
+        {#<iframe src="{{ path('admin_file_list') }}" class="frame"></iframe>#}
+    {#</div>#}
     <div class="well">
         <form method="POST">
             {{ form_widget(form) }}
@@ -25,4 +28,3 @@
     </style>
 
 {% endblock %}
-

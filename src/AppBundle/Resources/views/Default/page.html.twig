@@ -1,0 +1,11 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block breadcrumb %}
+    <div class="well panel-title">{{ page.title }}</div>
+{% endblock %}
+
+{% block content %}
+    <div class="well">
+        {{ page.body }}
+    </div>
+{% endblock %}
