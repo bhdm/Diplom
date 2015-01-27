@@ -52,8 +52,10 @@ class AuthController extends Controller
             $error = $this->get('request')->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
         }
 
+        $pages = $this->getDoctrine()->getRepository('AppBundle:Page')->findAll();
         return array(
-            'error' => $error
+            'error' => $error,
+            'pages' => $pages
         );
     }
 }

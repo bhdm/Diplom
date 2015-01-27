@@ -18,7 +18,7 @@ use AppBundle\Form\ClientType;
 class DefaultController extends Controller{
 
     /**
-     * @Route("/page/{url}", name="page")
+     * @Route("/pages/{url}", name="pages")
      * @Template()
      */
     public function pageAction($url){
