@@ -20,7 +20,7 @@ class Supplier extends BaseEntity
     protected $title;
 
     /**
-     * @ORM\Column(type="string", length=250)
+     * @ORM\Column(type="string", length=250, nullable=true)
      */
     protected $contract;
 
