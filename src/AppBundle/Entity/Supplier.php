@@ -21,7 +21,6 @@ class Supplier extends BaseEntity
 
     /**
      * @ORM\Column(type="string", length=250)
-     * @Assert\NotBlank( message = "поле Номер договора обязательно для заполнения" )
      */
     protected $contract;
 
