@@ -39,11 +39,18 @@ class Work extends BaseEntity
      * @Assert\NotBlank( message = "поле Дата начала работ обязательно для заполнения" )
      */
     protected $starts;
+
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank( message = "поле Дата окончания работ обязательно для заполнения" )
      */
     protected $ends;
+
+    /**
+     * @ORM\Column(type="date")
+     * @Assert\NotBlank( message = "поле Факт. дата окончания работ обязательно для заполнения" )
+     */
+    protected $endsFact;
 
     /**
      * @ORM\Column(type="string", length=250)
@@ -179,6 +186,22 @@ class Work extends BaseEntity
     public function setOrder($order)
     {
         $this->order = $order;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEndsFact()
+    {
+        return $this->endsFact;
+    }
+
+    /**
+     * @param mixed $endsFact
+     */
+    public function setEndsFact($endsFact)
+    {
+        $this->endsFact = $endsFact;
     }
 
 

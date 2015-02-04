@@ -13,18 +13,19 @@
                data-sort-name="number"
                data-sort-order="desc">
             <thead>
-            <tr>
-                <th data-field="number"
-                        data-sortable="true">№</th>
-                <th data-field="title"
-                        data-sortable="true">Название</th>
-                <th data-field="dateStarts"
-                        data-sortable="true">Дата начала</th>
-                <th data-field="dateEnds"
-                        data-sortable="true">Дата окончания</th>
-                <th data-field="setting"
-                        data-sortable="false" class="setting">Инструменты</th>
-            </tr>
+                <tr>
+                    <th data-field="number"
+                            data-sortable="true">№</th>
+                    <th data-field="title"
+                            data-sortable="true">Название</th>
+                    <th data-field="dateStarts"
+                            data-sortable="true">Дата начала</th>
+                    <th data-field="dateEnds"
+                            data-sortable="true">Дата окончания</th>
+                    <th data-field="setting"
+                            data-sortable="false" class="setting">Инструменты</th>
+                </tr>
+            </thead>
             {% for item in pagination %}
                 <tr>
                     <td>{{ item.id }}</td>

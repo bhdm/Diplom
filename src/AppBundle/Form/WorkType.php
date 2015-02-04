@@ -16,8 +16,10 @@ class WorkType extends AbstractType
     {
         $builder
             ->add('title', null, array('label' => 'Название работ'))
+            ->add('order', null, array('label' => 'Номер заявки'))
             ->add('starts', null, array('label' => 'Дата начала'))
             ->add('ends', null, array('label' => 'Дата окончания'))
+            ->add('endsFact', null, array('label' => 'Факт. дата окончания'))
             ->add('responsible', null, array('label' => 'Ответственный'))
 //            ->add('company', null, array('label' => 'Компания'))
             ->add('enabled','choice',  array(
