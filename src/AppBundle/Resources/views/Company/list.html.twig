@@ -18,7 +18,7 @@
                     {#<th>№</th>#}
                     <th data-field="title"
                         data-sortable="true">Название</th>
-                    <th data-field="phone"
+                    <th data-field="phone" class="phone"
                         data-sortable="true">Телефон</th>
                     <th data-field="contact"
                         data-sortable="true">Контактное лицо</th>
@@ -32,7 +32,7 @@
                 <tr>
                     {#<td>{{ item.id }}</td>#}
                     <td>{{ item }}</td>
-                    <td>{{ item.phone }}</td>
+                    <td class="phone">{{ item.phone }}</td>
                     <td>{{ item.contact }}</td>
                     <td>
                         {% if item.enabled == 1 %}
@@ -64,4 +64,13 @@
             {{ knp_pagination_render(pagination) }}
         </div>
     </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .phone{
+            width: 150px;
+        }
+    </style>
 {% endblock %}
