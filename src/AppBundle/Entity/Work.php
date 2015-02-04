@@ -20,11 +20,8 @@ class Work extends BaseEntity
      */
     protected $title;
 
-
-
-
     /**
-     * @ORM\manyToOne(targetEntity="Order", inversedBy="works")
+     * @ORM\ManyToOne(targetEntity="Order", inversedBy="works")
      */
     protected $order;
 
