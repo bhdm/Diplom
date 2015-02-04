@@ -2,7 +2,6 @@
 
 {% block breadcrumb %}
     <ul class="breadcrumb well">
-        <li>Страницы<span class="divider"></span></li>
         <li>Список страниц</li>
         <li>Изменение<span class="divider"></span></li>
     </ul>
@@ -19,12 +18,18 @@
     </div>
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/app/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('bundles/app/ckeditor/styles.js') }}"></script>
+{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
-    <style>
-        .frame{
-            width: 100%;
-        }
-    </style>
-
+<link href="{{ asset('bundles/app/ckeditor/contents.css') }}" rel="stylesheet">
+<style>
+    .frame{
+        width: 100%;
+    }
+</style>
 {% endblock %}

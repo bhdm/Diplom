@@ -17,7 +17,7 @@ class PageType extends AbstractType
         $builder
             ->add('title', null, array('label' => 'Название страницы'))
             ->add('url', null, array('label' => 'URL'))
-            ->add('body', null, array('label' => 'Тест страницы'))
+            ->add('body', null, array('label' => 'Тест страницы','attr' => array('class' => 'ckeditor')))
             ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
