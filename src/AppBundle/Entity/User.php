@@ -86,6 +86,30 @@ class User extends BaseEntity implements UserInterface
      */
     protected $roles;
 
+    /**
+     * @ORM\Column(type="string", length=12)
+     * @Assert\NotBlank( message = "поле ИНН обязательно для заполнения" )
+     */
+    protected $inn;
+
+    /**
+     * @ORM\Column(type="string", length=9)
+     * @Assert\NotBlank( message = "поле КПП обязательно для заполнения" )
+     */
+    protected $kpp;
+
+    /**
+     * @ORM\Column(type="date")
+     * @Assert\NotBlank( message = "поле Дата приема обязательно для заполнения" )
+     */
+    protected $dateStarts;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    protected $dateEnds;
+
+
     public function __construct(){
         $this->roles    = 'ROLE_OPERATOR';
         $this->orders = new ArrayCollection();
@@ -375,6 +399,87 @@ class User extends BaseEntity implements UserInterface
     public function removeOrder($order){
         $this->orders->removeElement($order);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getContracts()
+    {
+        return $this->contracts;
+    }
+
+    /**
+     * @param mixed $contracts
+     */
+    public function setContracts($contracts)
+    {
+        $this->contracts = $contracts;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInn()
+    {
+        return $this->inn;
+    }
+
+    /**
+     * @param mixed $inn
+     */
+    public function setInn($inn)
+    {
+        $this->inn = $inn;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKpp()
+    {
+        return $this->kpp;
+    }
+
+    /**
+     * @param mixed $kpp
+     */
+    public function setKpp($kpp)
+    {
+        $this->kpp = $kpp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateStarts()
+    {
+        return $this->dateStarts;
+    }
+
+    /**
+     * @param mixed $dateStarts
+     */
+    public function setDateStarts($dateStarts)
+    {
+        $this->dateStarts = $dateStarts;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateEnds()
+    {
+        return $this->dateEnds;
+    }
+
+    /**
+     * @param mixed $dateEnds
+     */
+    public function setDateEnds($dateEnds)
+    {
+        $this->dateEnds = $dateEnds;
+    }
+
 
 
 }

@@ -67,10 +67,21 @@ class Company extends BaseEntity
     protected $kpp;
 
     /**
+     * @ORM\Column(type="string", length=24)
+     * @Assert\NotBlank( message = "поле <BR обязательно для заполнения" )
+     */
+    protected $bik;
+
+    /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank( message = "поле Кор. счет обязательно для заполнения" )
+     * @Assert\NotBlank( message = "поле Расч. счет обязательно для заполнения" )
      */
     protected $expense;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $comment;
 
     public function __construct(){
         $this->contracts = new ArrayCollection();
@@ -247,6 +258,41 @@ class Company extends BaseEntity
     {
         $this->title = $title;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBik()
+    {
+        return $this->bik;
+    }
+
+    /**
+     * @param mixed $bik
+     */
+    public function setBik($bik)
+    {
+        $this->bik = $bik;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param mixed $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+
+
+
 
 
 

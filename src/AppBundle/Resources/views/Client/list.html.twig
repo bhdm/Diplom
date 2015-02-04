@@ -21,6 +21,8 @@
                         data-sortable="true">ФИО</th>
                     <th data-field="room"
                         data-sortable="true">Номер квартиры</th>
+                    <th data-field="area"
+                        data-sortable="true">Площаль квартиры</th>
                     <th  data-field="setting"
                          data-sortable="false" class="setting">Инструменты</th>
                 </tr>
@@ -30,6 +32,7 @@
                     <td>{{ item.id }}</td>
                     <td>{{ item }}</td>
                     <td>{{ item.room }}</td>
+                    <td>{{ item.area }}</td>
                     <td class="setting">
                         {% spaceless %}
                         <a href="{{ path('client_edit',{'id' : item.id}) }}">

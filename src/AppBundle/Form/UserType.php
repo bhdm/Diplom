@@ -22,6 +22,10 @@ class UserType extends AbstractType
             ->add('ads', null, array('label' => 'Адрес'))
             ->add('phone', null, array('label' => 'Телефон'))
             ->add('passport', null, array('label' => 'Паспорт'))
+            ->add('inn', null, array('label' => 'ИНН'))
+            ->add('kpp', null, array('label' => 'КПП'))
+            ->add('dateStarts', null, array('label' => 'Дата приема'))
+            ->add('dateEnds', null, array('label' => 'Дата увольнения'))
             ->add('username', null, array('label' => 'Логин'))
             ->add('password', 'repeated', array('type' => 'password', 'invalid_message' => 'пароли не совпадают', 'first_options'  => array('label' => 'Пароль'),
                 'second_options' => array('label' => 'Повторите пароль'),))

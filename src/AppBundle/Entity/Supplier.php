@@ -20,6 +20,12 @@ class Supplier extends BaseEntity
     protected $title;
 
     /**
+     * @ORM\Column(type="string", length=250)
+     * @Assert\NotBlank( message = "поле Полное название обязательно для заполнения" )
+     */
+    protected $fullTitle;
+
+    /**
      * @ORM\Column(type="string", length=250, nullable=true)
      */
     protected $contract;
@@ -55,10 +61,33 @@ class Supplier extends BaseEntity
     protected $kpp;
 
     /**
+     * @ORM\Column(type="string", length=24)
+     * @Assert\NotBlank( message = "поле БИК обязательно для заполнения" )
+     */
+    protected $bik;
+
+    /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank( message = "поле Кор. счет обязательно для заполнения" )
      */
     protected $expense;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank( message = "поле Кор. счет обязательно для заполнения" )
+     */
+    protected $ExpenseBank;
+
+    /**
+     * @ORM\Column(type="string", length=250)
+     * @Assert\NotBlank( message = "поле Отделение банка обязательно для заполнения" )
+     */
+    protected $bank;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $comment;
 
     /**
      * @return mixed
@@ -187,6 +216,104 @@ class Supplier extends BaseEntity
     {
         $this->expense = $expense;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLicense()
+    {
+        return $this->license;
+    }
+
+    /**
+     * @param mixed $license
+     */
+    public function setLicense($license)
+    {
+        $this->license = $license;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBik()
+    {
+        return $this->bik;
+    }
+
+    /**
+     * @param mixed $bik
+     */
+    public function setBik($bik)
+    {
+        $this->bik = $bik;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param mixed $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFullTitle()
+    {
+        return $this->fullTitle;
+    }
+
+    /**
+     * @param mixed $fullTitle
+     */
+    public function setFullTitle($fullTitle)
+    {
+        $this->fullTitle = $fullTitle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExpenseBank()
+    {
+        return $this->ExpenseBank;
+    }
+
+    /**
+     * @param mixed $ExpenseBank
+     */
+    public function setExpenseBank($ExpenseBank)
+    {
+        $this->ExpenseBank = $ExpenseBank;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getBank()
+    {
+        return $this->bank;
+    }
+
+    /**
+     * @param mixed $bank
+     */
+    public function setBank($bank)
+    {
+        $this->bank = $bank;
+    }
+
 
 
 }

@@ -19,10 +19,14 @@ class Work extends BaseEntity
      * @Assert\NotBlank( message = "поле Название работы обязательно для заполнения" )
      */
     protected $title;
+
+
+
+
     /**
-     * @ORM\ManyToMany(targetEntity="Order", inversedBy="works")
+     * @ORM\manyToOne(targetEntity="Order", inversedBy="works")
      */
-    protected $orders;
+    protected $order;
 
     /**
      * @ORM\ManyToMany(targetEntity="Contract", mappedBy="works")
@@ -120,21 +124,6 @@ class Work extends BaseEntity
         $this->contacts = $contacts;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getOrders()
-    {
-        return $this->orders;
-    }
-
-    /**
-     * @param mixed $orders
-     */
-    public function setOrders($orders)
-    {
-        $this->orders = $orders;
-    }
 
     /**
      * @return mixed
@@ -175,6 +164,23 @@ class Work extends BaseEntity
     {
         $this->title = $title;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param mixed $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    }
+
 
 
 }

@@ -19,6 +19,7 @@ class ClientType extends AbstractType
             ->add('firstName', null, array('label' => 'Имя'))
             ->add('surName', null, array('label' => 'Отчество'))
             ->add('room', null, array('label' => 'Квартира'))
+            ->add('area', null, array('label' => 'Площадь квартиры'))
             ->add('enabled','choice',  array(
                 'empty_value' => false,
                 'choices' => array(

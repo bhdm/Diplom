@@ -16,12 +16,18 @@ class SupplierType extends AbstractType
     {
         $builder
             ->add('title', null, array('label' => 'Название'))
+            ->add('fullTitle', null, array('label' => 'Полное название'))
+
             ->add('ads', null, array('label' => 'Адрес'))
             ->add('phone', null, array('label' => 'Телефон'))
             ->add('inn', null, array('label' => 'ИНН'))
             ->add('kpp', null, array('label' => 'КПП'))
             ->add('ogrn', null, array('label' => 'ОГРН'))
+            ->add('bik', null, array('label' => 'БИК'))
+            ->add('bank', null, array('label' => 'Отделение банка'))
+            ->add('expenseBank', null, array('label' => 'Кор. счет'))
             ->add('expense', null, array('label' => 'Р. счет'))
+            ->add('comment', null, array('label' => 'Комментарий'))
             ->add('enabled','choice',  array(
                 'empty_value' => false,
                 'choices' => array(

@@ -22,7 +22,9 @@ class CompanyType extends AbstractType
             ->add('contact', null, array('label' => 'Контактное лицо'))
             ->add('inn', null, array('label' => 'ИНН'))
             ->add('kpp', null, array('label' => 'КПП'))
+            ->add('bik', null, array('label' => 'БИК'))
             ->add('expense', null, array('label' => 'Р. счет'))
+            ->add('comment', null, array('label' => 'Комментарий'))
             ->add('enabled','choice',  array(
                 'empty_value' => false,
                 'choices' => array(

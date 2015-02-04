@@ -34,7 +34,7 @@ class Order extends BaseEntity
     protected $user;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Work", mappedBy="orders")
+     * @ORM\OneToMany(targetEntity="Work", mappedBy="order")
      */
     protected $works;
 

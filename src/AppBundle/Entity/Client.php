@@ -27,6 +27,13 @@ class Client extends BaseEntity
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank( message = "поле Площадь квартиры обязательно для заполнения" )
+     */
+    protected $area;
+
+
+    /**
+     * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank( message = "поле Фамилия обязательно для заполнения" )
      */
     protected $lastName;
@@ -137,4 +144,22 @@ class Client extends BaseEntity
     public function removeOrder($order){
         $this->orders->removeElement($order);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    /**
+     * @param mixed $area
+     */
+    public function setArea($area)
+    {
+        $this->area = $area;
+    }
+
+
 }
