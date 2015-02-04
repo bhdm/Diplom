@@ -32,7 +32,13 @@
                     <td>{{ item.id }}</td>
                     <td>{{ item.client }}</td>
                     <td>{{ item.ends | date('d.m.Y') }}</td>
-                    <td>{{ item.closed == 1 ? 'Закрытая' : 'Открытая' }}</td>
+                    <td>
+                        {% if item.enabled == 1 %}
+                            <span class="label label-success">Закрыта</span>
+                        {% elseif item.enabled == 0 %}
+                            <span class="label label-danger">Открыта</span>
+                        {% endif %}
+                    </td>
                     <td class="setting">
                         {% spaceless %}
                         <a href="{{ path('order_edit',{'id' : item.id}) }}">

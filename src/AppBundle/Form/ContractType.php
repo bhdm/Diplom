@@ -24,8 +24,8 @@ class ContractType extends AbstractType
             ->add('enabled','choice',  array(
                 'empty_value' => false,
                 'choices' => array(
-                    '1' => 'Активен',
-                    '0' => 'Заблокирован',
+                    '1' => 'Открыта',
+                    '0' => 'Закрыта',
                 ),
                 'label' => 'Активность',
                 'required'  => false,
