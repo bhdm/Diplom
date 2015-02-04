@@ -16,7 +16,13 @@ class AuthController extends Controller
      * @Route("/", name="main")
      */
     public function indexAction(){
-        return $this->redirect($this->generateUrl('order_list'));
+        if ($this->get('security.context')->isGranted('ROLE_OPERATOR')){
+            return $this->redirect($this->generateUrl('order_list'));
+        }elseif ($this->get('security.context')->isGranted('ROLE_CLIENT')){
+            return $this->redirect($this->generateUrl('my_order_list'));
+        }else{
+            return $this->redirect($this->generateUrl('login'));
+        }
     }
 
     /**

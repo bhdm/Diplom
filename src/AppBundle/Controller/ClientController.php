@@ -50,6 +50,10 @@ class ClientController extends Controller{
         if ($request->getMethod() == 'POST'){
             if ($formData->isValid()){
                 $item = $formData->getData();
+                $item->setSalt(md5(time()));
+                $encoder = new MessageDigestPasswordEncoder('sha512', true, 10);
+                $password = $encoder->encodePassword($item->getPassword(), $item->getSalt());
+                $item->setPassword($password);
                 $em->persist($item);
                 $em->flush();
                 $em->refresh($item);
@@ -73,7 +77,12 @@ class ClientController extends Controller{
         if ($request->getMethod() == 'POST'){
             if ($formData->isValid()){
                 $item = $formData->getData();
-                $em->flush($item);
+                $item->setSalt(md5(time()));
+                $encoder = new MessageDigestPasswordEncoder('sha512', true, 10);
+                $password = $encoder->encodePassword($item->getPassword(), $item->getSalt());
+                $item->setPassword($password);
+                $em->persist($item);
+                $em->flush();
                 $em->refresh($item);
                 return $this->redirect($this->generateUrl('client_list'));
             }

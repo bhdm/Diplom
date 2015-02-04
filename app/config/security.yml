@@ -8,11 +8,23 @@ security:
             algorithm: sha512
             encode-as-base64: true
             iterations: 10
+        AppBundle\Entity\Client:
+            algorithm: sha512
+            encode-as-base64: true
+            iterations: 10
+
     role_hierarchy:
         ROLE_ADMIN: [ROLE_OPERATOR]
+
     providers:
         main:
+            chain:
+                providers: [user, client]
+        user:
             entity: { class: AppBundle:User, property: username }
+        client:
+            entity: { class: AppBundle:Client, property: username }
+
     firewalls:
         everything:
             pattern: ^/

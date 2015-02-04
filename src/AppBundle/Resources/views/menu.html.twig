@@ -1,5 +1,7 @@
 <div class="well">
     <h2 class="modal-title">Навигация</h2>
+
+{% if is_granted("ROLE_OPERATOR") %}
     <ul class="nav list-group">
         <li class="">
             <a href="{{ path('order_list') }}">
@@ -50,4 +52,20 @@
             </a>
         </li>
     </ul>
+{% elseif is_granted("ROLE_CLIENT") %}
+    <ul class="nav list-group">
+        <li class="">
+            <a href="{{ path('my_order_add') }}">
+                <i class="glyphicon glyphicon-align-justify"></i>
+                Подать заявку
+            </a>
+        </li>
+        <li class="">
+            <a href="{{ path('my_order_list') }}">
+                <i class="glyphicon glyphicon-align-justify"></i>
+                Мои заявки
+            </a>
+        </li>
+    </ul>
+{% endif %}
 </div>

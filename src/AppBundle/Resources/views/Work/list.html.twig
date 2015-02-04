@@ -30,8 +30,8 @@
                 <tr>
                     <td>{{ item.id }}</td>
                     <td>{{ item }}</td>
-                    <td>{{ item.starts | date('Y.m.d') }}</td>
-                    <td>{{ item.ends | date('Y.m.d') }}</td>
+                    <td>{{ item.starts | date('d.m.Y') }}</td>
+                    <td>{{ item.ends | date('d.m.Y') }}</td>
                     <td class="setting">
                         {% spaceless %}
                         <a href="{{ path('work_edit',{'id' : item.id}) }}">

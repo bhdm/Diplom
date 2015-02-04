@@ -1,0 +1,44 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumb well">
+        <li>Список заявок</li>
+        {#<li class="active">Добавление<span class="divider"></span></li>#}
+        <li><a href="{{ path('my_order_add') }}"><span class="btn btn-primary">Добавить</span></a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="well">
+        <table class="table" data-toggle="table"
+               data-sort-name="starts"
+               data-sort-order="desc">
+            <thead>
+            <tr>
+                <th data-field="starts"
+                    data-sortable="true">Дата подачи</th>
+                <th data-field="ends"
+                    data-sortable="true">План. окончание</th>
+                <th data-field="status"
+                    data-sortable="true">Статус</th>
+            </tr>
+            </thead>
+            {% for item in pagination %}
+                <tr>
+                    <td>{{ item.created | date('d.m.Y') }}</td>
+                    <td>{{ item.ends | date('d.m.Y') }}</td>
+                    <td>
+                        {% if item.enabled == 1 %}
+                            <span class="label label-success">Закрыта</span>
+                        {% elseif item.enabled == 0 %}
+                            <span class="label label-danger">Открыта</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor%}
+        </table>
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+{% endblock %}

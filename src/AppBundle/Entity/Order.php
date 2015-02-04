@@ -44,6 +44,12 @@ class Order extends BaseEntity
     protected $ends;
 
     /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank( message = "поле Описание заявки обязательно для заполнения" )
+     */
+    protected $body;
+
+    /**
      * @ORM\Column(type="date", nullable=true)
      */
     protected $endsFact;
@@ -185,6 +191,22 @@ class Order extends BaseEntity
 
     public function removeContract($contract){
         $this->contracts->removeElement($contract);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
+     * @param mixed $body
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
     }
 
 

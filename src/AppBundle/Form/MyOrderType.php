@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class OrderType extends AbstractType
+class MyOrderType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -24,19 +24,8 @@ class OrderType extends AbstractType
                 'label' => 'Статус',
                 'required'  => false,
             ))
-            ->add('body', null, array('label' => 'Описание заявки'))
             ->add('ends', null, array('label' => 'Планируемая дата окончания'))
-            ->add('endsFact', null,  array('label' => 'Фактическая дата окончания'))
-            ->add('client', null, array('label' => 'Клиент'))
-            ->add('enabled','choice',  array(
-                'empty_value' => false,
-                'choices' => array(
-                    '1' => 'Активен',
-                    '0' => 'Заблокирован',
-                ),
-                'label' => 'Активность',
-                'required'  => false,
-            ))
+            ->add('body', null, array('label' => 'Описание заявки'))
             ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
