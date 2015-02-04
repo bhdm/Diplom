@@ -10,20 +10,26 @@
 
 {% block content %}
     <div class="well">
-        <table class="table">
-            <tr>
-                <th>№</th>
-                <th>клиент</th>
-                <th>Дата</th>
-                <th></th>
-                <th class="setting">Инструменты</th>
-            </tr>
+        <table class="table" data-toggle="table"
+               data-sort-name="number"
+               data-sort-order="desc">
+            <thead>
+                <tr>
+                    <th data-field="number"
+                        data-sortable="true">№</th>
+                    <th data-field="client"
+                        data-sortable="true">клиент</th>
+                    <th data-field="date"
+                        data-sortable="true">Дата</th>
+                    <th data-field="setting"
+                        data-sortable="false" class="setting">Инструменты</th>
+                </tr>
+            </thead>
             {% for item in pagination %}
                 <tr>
                     <td>{{ item.number }}</td>
                     <td>{{ item.order.client.room }}</td>
                     <td>{{ item.date | date('d.m.Y') }}</td>
-                    <td></td>
                     <td class="setting">
                         {% spaceless %}
                         <a href="{{ path('contract_edit',{'id' : item.id}) }}">

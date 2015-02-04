@@ -9,22 +9,29 @@
 
 {% block content %}
     <div class="well">
-        <table class="table">
-            <tr>
-                {#<th>№</th>#}
-                <th>Название</th>
-                <th>Телефон</th>
-                <th>ИНН</th>
-                <th></th>
-                <th class="setting">Инструменты</th>
-            </tr>
+        <table class="table" data-toggle="table"
+               data-sort-name="number"
+               data-sort-order="desc">
+            <thead>
+                <tr>
+                    <th data-field="number"
+                        data-sortable="true">№</th>
+                    <th data-field="title"
+                        data-sortable="true">Название</th>
+                    <th data-field="phone"
+                        data-sortable="true">Телефон</th>
+                    <th data-field="inn"
+                        data-sortable="true">ИНН</th>
+                    <th data-field="setting"
+                        data-sortable="false" class="setting">Инструменты</th>
+                </tr>
+            </thead>
             {% for item in pagination %}
                 <tr>
-                    {#<td>{{ item.id }}</td>#}
+                    <td>{{ item.id }}</td>
                     <td>{{ item.title }}</td>
                     <td>{{ item.phone }}</td>
                     <td>{{ item.inn }}</td>
-                    <td></td>
                     <td class="setting">
                         {% spaceless %}
                         <a href="{{ path('supplier_edit',{'id' : item.id}) }}">
