@@ -1,6 +1,7 @@
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block breadcrumb %}
+    <a href="{{ path('client_list') }}"><span class="btn btn-primary right-btn">В список</span></a>
     <ul class="breadcrumb well">
         <li><a href="{{ path('client_list') }}">Список клиентов</a><span class="divider"></span></li>
         <li>Добавление<span class="divider"></span></li>
