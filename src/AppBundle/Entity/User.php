@@ -93,10 +93,10 @@ class User extends BaseEntity implements UserInterface
     protected $inn;
 
     /**
-     * @ORM\Column(type="string", length=9)
+     * @ORM\Column(type="string", length=15)
      * @Assert\NotBlank( message = "поле КПП обязательно для заполнения" )
      */
-    protected $kpp;
+    protected $snils;
 
     /**
      * @ORM\Column(type="date")
@@ -435,18 +435,20 @@ class User extends BaseEntity implements UserInterface
     /**
      * @return mixed
      */
-    public function getKpp()
+    public function getSnils()
     {
-        return $this->kpp;
+        return $this->snils;
     }
 
     /**
-     * @param mixed $kpp
+     * @param mixed $snils
      */
-    public function setKpp($kpp)
+    public function setSnils($snils)
     {
-        $this->kpp = $kpp;
+        $this->snils = $snils;
     }
+
+
 
     /**
      * @return mixed

@@ -23,7 +23,7 @@ class UserType extends AbstractType
             ->add('phone', null, array('label' => 'Телефон'))
             ->add('passport', null, array('label' => 'Паспорт'))
             ->add('inn', null, array('label' => 'ИНН'))
-            ->add('kpp', null, array('label' => 'КПП'))
+            ->add('snils', null, array('label' => 'СНИЛС'))
             ->add('dateStarts', null, array('label' => 'Дата приема'))
             ->add('dateEnds', null, array('label' => 'Дата увольнения'))
             ->add('username', null, array('label' => 'Логин'))
