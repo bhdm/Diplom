@@ -19,7 +19,7 @@ class ContractType extends AbstractType
             ->add('dateStarts', null, array('label' => 'Дата заключения'))
             ->add('dateEnds', null, array('label' => 'Дата окончания'))
             ->add('company', null, array('label' => 'Компания'))
-            ->add('commentы', null, array('label' => 'Комментарий'))
+            ->add('comment', null, array('label' => 'Комментарий'))
             ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }
