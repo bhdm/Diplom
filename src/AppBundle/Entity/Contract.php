@@ -49,6 +49,11 @@ class Contract extends BaseEntity
     protected $dateEnds;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $comment;
+
+    /**
      * @return mixed
      */
     public function getUser()
@@ -144,8 +149,24 @@ class Contract extends BaseEntity
         $this->dateEnds = $dateEnds;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
 
-    
+    /**
+     * @param mixed $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+
+
+
 
 
 
