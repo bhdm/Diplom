@@ -54,4 +54,65 @@
             </form>
         </div>
     </div>
+    <div class="col-md-12">
+        <div class="container">
+            <div class="cal1">
+            </div>
+            <div class="cal2">
+                <script type="text/template" id="template-calendar">
+                    <div class="clndr-controls">
+                        <div class="clndr-previous-button">&lsaquo;</div>
+                        <div class="month"><%= month %></div>
+                        <div class="clndr-next-button">&rsaquo;</div>
+                    </div>
+                    <div class="clndr-grid">
+                        <div class="days-of-the-week">
+                            <% _.each(daysOfTheWeek, function(day) { %>
+                            <div class="header-day"><%= day %></div>
+                            <% }); %>
+                            <div class="days">
+                                <% _.each(days, function(day) { %>
+                                <div class="<%= day.classes %>"><%= day.day %></div>
+                                <% }); %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clndr-today-button">Today</div>
+                </script>
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
 {% endblock %}
+
+{#{% block javascripts %}#}
+    {#{{ parent() }}#}
+    {#<script src="{{ asset('bundles/app/CLNDR-master/moment-2.8.3.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/app/CLNDR-master/clndr.min.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/app/CLNDR-master/underscore-min.js') }}"></script>#}
+    {#&#123;&#35;<script src="{{ asset('buncles/app/CLNDR-master/Gruntfile.js') }}"></script>&#35;&#125;#}
+    {#<script>#}
+        {#$(document).ready(function(){#}
+            {#var calendars = {};#}
+            {#calendars.clndr1 = $('.cal1').clndr({#}
+                {#template: $('#template-calendar').html(),#}
+                {#weekOffset: 1,#}
+                {#daysOfTheWeek: [ 'Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],#}
+                {#month: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь']#}
+            {#});#}
+        {#})#}
+    {#</script>#}
+{#{% endblock %}#}
+
+{#{% block stylesheets %}#}
+    {#{{ parent() }}#}
+    {#&#123;&#35;<link href="{{ asset('bundles/app/CLNDR-master/clndr.css') }}" rel="stylesheet">&#35;&#125;#}
+    {#<style>#}
+        {#.clndr-previous-button, .clndr-next-button, .month{#}
+            {#display: none;#}
+        {#}#}
+    {#</style>#}
+{#{% endblock %}#}
