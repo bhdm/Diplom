@@ -16,6 +16,7 @@ class ContractType extends AbstractType
     {
         $builder
             ->add('number', null, array('label' => 'Номер договора'))
+            ->add('title', null, array('label' => 'Название'))
             ->add('dateStarts', null, array('label' => 'Дата заключения'))
             ->add('dateEnds', null, array('label' => 'Дата окончания'))
             ->add('company', null, array('label' => 'Компания'))
