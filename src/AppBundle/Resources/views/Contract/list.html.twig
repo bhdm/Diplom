@@ -17,7 +17,7 @@
                 <tr>
                     <th data-field="number"
                         data-sortable="true">№</th>
-                    <th data-field="date"
+                    <th data-field="title"
                         data-sortable="true">Название</th>
                     <th data-field="date"
                         data-sortable="true">Дата заключения</th>
@@ -30,10 +30,10 @@
             {% for item in pagination %}
                 <tr>
                     <td>{{ item.number }}</td>
-                    <td>{{ item.title}}</td>
+                    <td>{{ item.title }}</td>
                     <td>{{ item.dateStarts | date('d.m.Y') }}</td>
                     <td>{{ item.dateEnds | date('d.m.Y') }}</td>
-                    
+
                     <td class="setting">
                         {% spaceless %}
                         <a href="{{ path('contract_edit',{'id' : item.id}) }}">
