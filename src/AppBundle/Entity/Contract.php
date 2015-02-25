@@ -15,16 +15,6 @@ class Contract extends BaseEntity
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="Order", inversedBy="contracts")
-     */
-    protected $order;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Work", inversedBy="contracts")
-     */
-    protected $works;
-
-    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="contracts")
      */
     protected $user;
@@ -41,96 +31,22 @@ class Contract extends BaseEntity
     protected $number;
 
     /**
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank( message = "поле Название договора обязательно для заполнения" )
+     */
+    protected $title;
+
+    /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank( message = "поле Дата заключения обязательно для заполнения" )
      */
-    protected $date;
+    protected $dateStarts;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank( message = "поле Срок действия договора обязательно для заполнения" )
+     * @ORM\Column(type="date")
+     * @Assert\NotBlank( message = "поле Дата окончания обязательно для заполнения" )
      */
-    protected $length;
-
-    /**
-     * @return mixed
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
-    /**
-     * @param mixed $number
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * @param mixed $date
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLength()
-    {
-        return $this->length;
-    }
-
-    /**
-     * @param mixed $length
-     */
-    public function setLength($length)
-    {
-        $this->length = $length;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
-
-    /**
-     * @param mixed $order
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getWorks()
-    {
-        return $this->works;
-    }
-
-    /**
-     * @param mixed $works
-     */
-    public function setWorks($works)
-    {
-        $this->works = $works;
-    }
+    protected $dateEnds;
 
     /**
      * @return mixed
@@ -163,6 +79,73 @@ class Contract extends BaseEntity
     {
         $this->company = $company;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * @param mixed $number
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateStarts()
+    {
+        return $this->dateStarts;
+    }
+
+    /**
+     * @param mixed $dateStarts
+     */
+    public function setDateStarts($dateStarts)
+    {
+        $this->dateStarts = $dateStarts;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateEnds()
+    {
+        return $this->dateEnds;
+    }
+
+    /**
+     * @param mixed $dateEnds
+     */
+    public function setDateEnds($dateEnds)
+    {
+        $this->dateEnds = $dateEnds;
+    }
+
+
+    
 
 
 

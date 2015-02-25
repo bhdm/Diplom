@@ -16,20 +16,9 @@ class ContractType extends AbstractType
     {
         $builder
             ->add('number', null, array('label' => 'Номер договора'))
-            ->add('date', null, array('label' => 'Дата'))
-            ->add('length', null, array('label' => 'Срок договора (в дн.)'))
-            ->add('order', null, array('label' => 'Заявка'))
-            ->add('works', null, array('label' => 'Работы'))
+            ->add('dateStarts', null, array('label' => 'Дата заключения'))
+            ->add('dateEnds', null, array('label' => 'Дата окончания'))
             ->add('company', null, array('label' => 'Компания'))
-            ->add('enabled','choice',  array(
-                'empty_value' => false,
-                'choices' => array(
-                    '1' => 'Открыта',
-                    '0' => 'Закрыта',
-                ),
-                'label' => 'Активность',
-                'required'  => false,
-            ))
             ->add('submit', 'submit', array('label' => 'Сохранить'))
         ;
     }

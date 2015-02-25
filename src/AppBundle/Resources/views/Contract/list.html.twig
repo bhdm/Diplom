@@ -17,12 +17,12 @@
                 <tr>
                     <th data-field="number"
                         data-sortable="true">№</th>
-                    <th data-field="client"
-                        data-sortable="true">клиент</th>
                     <th data-field="date"
-                        data-sortable="true">Дата</th>
-                    <th data-field="status"
-                        data-sortable="true">Статус</th>
+                        data-sortable="true">Название</th>
+                    <th data-field="date"
+                        data-sortable="true">Дата заключения</th>
+                    <th data-field="date2"
+                        data-sortable="true">Дата окончания</th>
                     <th data-field="setting"
                         data-sortable="false" class="setting">Инструменты</th>
                 </tr>
@@ -30,15 +30,10 @@
             {% for item in pagination %}
                 <tr>
                     <td>{{ item.number }}</td>
-                    <td>{{ item.order.client.room }}</td>
-                    <td>{{ item.date | date('d.m.Y') }}</td>
-                    <td>
-                        {% if item.enabled == 1 %}
-                            <span class="label label-danger">Открыта</span>
-                        {% elseif item.enabled == 0 %}
-                            <span class="label label-success">Закрыта</span>
-                        {% endif %}
-                    </td>
+                    <td>{{ item.title}}</td>
+                    <td>{{ item.dateStarts | date('d.m.Y') }}</td>
+                    <td>{{ item.dateEnds | date('d.m.Y') }}</td>
+                    
                     <td class="setting">
                         {% spaceless %}
                         <a href="{{ path('contract_edit',{'id' : item.id}) }}">

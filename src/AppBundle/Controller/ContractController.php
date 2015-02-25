@@ -50,6 +50,7 @@ class ContractController extends Controller{
         if ($request->getMethod() == 'POST'){
             if ($formData->isValid()){
                 $item = $formData->getData();
+                $item->setUser($this->getUser());
                 $em->persist($item);
                 $em->flush();
                 $em->refresh($item);
